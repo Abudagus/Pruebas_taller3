@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat con LLaMA 3 (local)</title>
+</head>
+<body>
+    <h1>Chat IA Local (LLaMA 3 con Ollama)</h1>
+    <form method="post" action="/preguntar">
+        <textarea name="pregunta" rows="4" cols="50" placeholder="Escribe tu pregunta aquí..."></textarea><br><br>
+        <input type="submit" value="Enviar">
+    </form>
+
+    {% if respuesta %}
+        <h2>Respuesta:</h2>
+        <p>{{ respuesta }}</p>
+    {% endif %}
+</body>
+</html>

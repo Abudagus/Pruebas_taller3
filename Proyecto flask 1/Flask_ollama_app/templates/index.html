@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Chat con LLaMA 3</title>
+</head>
+<body>
+    <h1>Preguntale a LLaMA 3</h1>
+    <input type="text" id="pregunta" placeholder="Escribí tu pregunta">
+    <button onclick="enviarPregunta()">Enviar</button>
+    <pre id="respuesta"></pre>
+
+    <script>
+        async function enviarPregunta() {
+            const pregunta = document.getElementById("pregunta").value;
+            const respuestaDiv = document.getElementById("respuesta");
+            respuestaDiv.textContent = "Cargando...";
+
+            const res = await fetch("/preguntar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ pregunta })
+            });
+
+            const data = await res.json();
+            if (data.respuesta) {
+                respuestaDiv.textContent = data.respuesta;
+            } else {
+                respuestaDiv.textContent = "Error: " + data.error;
+            }
+        }
+    </script>
+</body>
+</html>
