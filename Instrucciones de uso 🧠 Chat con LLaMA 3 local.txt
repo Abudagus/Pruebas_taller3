@@ -1,0 +1,95 @@
+# 🧠 Chat con LLaMA 3 local usando Flask
+
+Este proyecto es una aplicación web simple que utiliza el modelo de lenguaje **LLaMA 3:8B** ejecutado localmente con **Ollama**, y una interfaz hecha con **Flask**. Permite enviar preguntas personalizadas a la IA desde una página web.
+
+---
+
+## 🚀 Demo
+
+_(Podés agregar una captura o gif aquí si querés mostrar cómo funciona visualmente)_
+
+---
+
+## 🧱 Requisitos
+
+Antes de usar este proyecto, asegurate de tener instalado:
+
+- 🐍 Python 3.10 o superior
+- 🐳 [Ollama](https://ollama.com) (para correr el modelo localmente)
+- 💻 Visual Studio Code (opcional, pero recomendado)
+
+---
+
+## 📦 Instalación
+
+1. **Clonar el repositorio**
+
+```bash
+git clone https://github.com/tuusuario/flask-llama3-chat.git
+cd flask-llama3-chat
+
+Crear un entorno virtual
+
+bash
+Copiar
+Editar
+python -m venv venv
+venv\Scripts\activate  # En Windows
+Instalar dependencias
+
+bash
+Copiar
+Editar
+pip install -r requirements.txt
+Cargar el modelo LLaMA 3
+
+Si aún no lo hiciste, desde otra terminal:
+
+bash
+Copiar
+Editar
+ollama run llama3
+🧠 Personalización del Prompt
+Podés personalizar el comportamiento de la IA editando la función enviar_prompt() en app.py, agregando tus propias preguntas y respuestas para guiar su estilo.
+
+python
+Copiar
+Editar
+def enviar_prompt(pregunta):
+    prompt = f\"\"\"Eres un asistente experto. Responde como en los ejemplos:
+
+Usuario: ¿De qué color puede ser el cielo?
+Asistente: El cielo puede ser azul durante el día, pero también puede aparecer en tonos naranja o rojo.
+
+Usuario: {pregunta}
+Asistente:\"\"\"
+💻 Ejecutar el servidor Flask
+En la raíz del proyecto:
+
+bash
+Copiar
+Editar
+python app.py
+La aplicación estará disponible en:
+📍 http://localhost:5000
+
+📂 Estructura del proyecto
+bash
+Copiar
+Editar
+├── app.py               # Servidor Flask principal
+├── test_api.py          # Script de prueba por consola
+├── templates/
+│   └── index.html       # Interfaz web
+├── .gitignore
+├── requirements.txt
+└── README.md
+
+🤝 Contribuciones
+¡Las contribuciones son bienvenidas! Podés:
+
+Proponer mejoras de prompt
+
+Añadir nuevos estilos de interfaz
+
+Conectar a bases de datos o subirlo a la nube
